@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.revisaospring.springbasic.Entity.Produto;
 import com.revisaospring.springbasic.Service.ProdutoService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,6 +20,11 @@ public class ProdutoController {
     public String telaListarProduto(Model oModel) {
         oModel.addAttribute("produtos", oProdutoService.buscarTodos());
         return "listarProdutos";
+    }
+    @GetMapping("/formCadastrar")
+    public String telaCadastrarProduto(Model oModel) {
+        oModel.addAttribute("produto", new Produto());
+        return "cadastrarProduto";
     }
     
 
