@@ -12,15 +12,19 @@ import com.revisaospring.springbasic.Service.UsuarioService;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
-@RequestMapping("/UsuarioCTR")
+@RequestMapping("/usuarioCTR")
 public class UsuarioController {
     
     @Autowired
     private UsuarioService oUsuarioService;
 
-    @GetMapping("/foormCadastrarUsuario")
+    @GetMapping("/main")
+    public String telaMain() {
+        return "main";
+    }
+    
+    @GetMapping("/formCadastrarUsuario") // Corrigi o erro de digitação "foorm" também
     public String cadastrarUsuario(Model oModel) {
-
         oModel.addAttribute("usuario", new Usuario());
         return "cadastrarUsuario";
     }
@@ -31,11 +35,10 @@ public class UsuarioController {
     }
     
     @PostMapping("/salvarUsuario")
-    public String cadastrarUsuario(@ModelAttribute Usuario oUsuario) {
-
+    public String salvarUsuario(@ModelAttribute Usuario oUsuario) {
         oUsuarioService.cadastrarUsuario(oUsuario);
+        // Garanta que o redirect aponte para o caminho correto
         return "redirect:/usuarioCTR/formCadastrarUsuario";
-
     }
 
     @GetMapping("/listarUsuarios")

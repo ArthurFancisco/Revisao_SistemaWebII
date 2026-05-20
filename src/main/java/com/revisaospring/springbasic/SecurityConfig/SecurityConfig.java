@@ -24,17 +24,17 @@ public class SecurityConfig {
         http
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers(
-                    "/usuarioCTR/formCadastrarUsuario",
+                        "/usuarioCTR/formCadastrarUsuario",
                     "/usuarioCTR/login",
-                    //"/usuarioCTR/salvarUsuario",
-                    //"/usuarioCTR/listarUsuarios",
+                    "/usuarioCTR/salvarUsuario",
+                    "/usuarioCTR/listarUsuarios",
                     "/produtoCTR/**").permitAll()
                 .anyRequest().authenticated()
             )
             .formLogin(form -> form
                 .loginPage("/usuarioCTR/login")
                 .loginProcessingUrl("/login")
-                .defaultSuccessUrl("/usuarioCTR/listarUsuarios", true)
+                .defaultSuccessUrl("/usuarioCTR/main", true)
                 .permitAll()
             )
             .userDetailsService(userDetailsService)
