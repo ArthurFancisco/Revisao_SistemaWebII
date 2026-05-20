@@ -19,7 +19,7 @@ public class Produto {
     @Id
     @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
     @Column(name = "id", unique = true, nullable = false)
-    private long id;
+    private Long id;
 
     @Column(name = "nome", nullable = false, length = 100)
     private String nome;
