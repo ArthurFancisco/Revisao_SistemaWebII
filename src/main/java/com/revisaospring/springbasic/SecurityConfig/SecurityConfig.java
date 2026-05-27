@@ -34,7 +34,7 @@ public class SecurityConfig {
             .formLogin(form -> form
                 .loginPage("/usuarioCTR/login")
                 .loginProcessingUrl("/login")
-                .defaultSuccessUrl("/usuarioCTR/main", true)
+                .defaultSuccessUrl("/usuarioCTR/", true)
                 .permitAll()
             )
             .userDetailsService(userDetailsService)

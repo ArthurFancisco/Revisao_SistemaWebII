@@ -20,13 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/produtoCTR")
 public class ProdutoController {
     @Autowired
-    private ProdutoService oProdutoService;
-
-    @GetMapping("/main")
-    public String telaMain() {
-        return "main";
-    }
-    
+    private ProdutoService oProdutoService; 
 
     @GetMapping("/listarProdutos")
     public String telaListarProduto(Model oModel) {

@@ -18,7 +18,7 @@ public class UsuarioController {
     @Autowired
     private UsuarioService oUsuarioService;
 
-    @GetMapping("/main")
+    @GetMapping("/")
     public String telaMain() {
         return "main";
     }

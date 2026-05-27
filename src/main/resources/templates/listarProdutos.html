@@ -1,38 +1,52 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Página Listar Produtos</title>
+    <title>Listar Produtos</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-    <h2>Lista de Produtos cadastrados</h2>
 
-<table border="1">
-    <tr>
-        <th>ID</th>
-        <th>Nome</th>
-        <th>preço</th>
-        <th>categoria</th>
-        <th>Ações</th>
-    </tr>
+<div class="container">
+    <h2>Lista de Produtos Cadastrados</h2>
 
-    <tr th:each="prod : ${produtos}">
-        <td th:text="${prod.id}"></td>
-        <td th:text="${prod.nome}"></td>
-        <td th:text="${prod.valor}"></td>
-        <td th:text="${prod.categoria}"></td>
-        <td>
-                <a th:href="@{/produtoCTR/formAlterar/{id}(id=${prod.id})}">Editar</a>
-                    
-                <a th:href="@{/produtoCTR/deletarProduto/{id}(id=${prod.id})}"
-                onclick="return confirm('Deseja realmente excluir este produto?')">Excluir</a>
-        </td>
-    </tr>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Preço</th>
+            <th>Categoria</th>
+            <th>Ações</th>
+        </tr>
+        </thead>
 
-</table>
+        <tbody>
+        <tr th:each="prod : ${produtos}">
+            <td th:text="${prod.id}"></td>
+            <td th:text="${prod.nome}"></td>
+            <td th:text="${prod.valor}"></td>
+            <td th:text="${prod.categoria}"></td>
+            <td>
+                <div class="actions">
+                    <a class="btn" th:href="@{/produtoCTR/formAlterar/{id}(id=${prod.id})}">Editar</a>
 
-<br>
-<a th:href="@{/produtoCTR/formCadastrar}">Novo Produto</a>
+                    <a class="btn btn-danger"
+                       th:href="@{/produtoCTR/deletarProduto/{id}(id=${prod.id})}"
+                       onclick="return confirm('Deseja realmente excluir este produto?')">
+                        Excluir
+                    </a>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="links">
+        <a class="btn" th:href="@{/produtoCTR/formCadastrar}">Novo Produto</a>
+        <a class="btn btn-secondary" th:href="@{/usuarioCTR/}">Voltar ao Menu</a>
+    </div>
+</div>
 
 </body>
 </html>

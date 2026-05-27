@@ -1,27 +1,27 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Página Listar Produtos</title>
+    <title>Página Principal</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-    <h2>Pagina main</h2>
 
+<div class="container form-container">
+    <h2>Página Principal</h2>
 
+    <div class="menu">
+        <a class="btn" th:href="@{/login}">Logar</a>
 
-<a th:href="@{/produtoCTR/}">Logar</a>
-<br>
+        <a class="btn" th:href="@{/produtoCTR/formCadastrar}">Cadastrar Produto</a>
 
-<a th:href="@{/produtoCTR/formCadastrar}">Novo Produto</a>
-<br>
+        <a class="btn" th:href="@{/produtoCTR/listarProdutos}">Listar Produtos</a>
 
-<a th:href="@{/produtoCTR/listarProdutos}">lista Produto</a>
-<br>
+        <a class="btn" th:href="@{/usuarioCTR/formCadastrarUsuario}">Cadastrar Usuário</a>
 
-<a th:href="@{/usuarioCTR/formCadastrarUsuario}">Novo Usuario</a>
-<br>
-
-
+        <a class="btn" th:href="@{/usuarioCTR/listarUsuarios}">Listar Usuários</a>
+    </div>
+</div>
 
 </body>
 </html>
