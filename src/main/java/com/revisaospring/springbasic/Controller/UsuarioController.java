@@ -45,7 +45,7 @@ public class UsuarioController {
     public String listarUsuarios(Model oModel) {
 
         oModel.addAttribute("usuarios", oUsuarioService.listarTodosUsers());
-        return "listarUsuarios";
+        return "listarUsuario";
 
     }
 
